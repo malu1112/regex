@@ -16,10 +16,11 @@ def date_matcher(input_date):
                 return 'CONVERTED', datetime.strptime(input_date, expected_format)
     except Exception as e:
         return 'EXCEPTION', datetime.now()
+    return 'NOT CONVERTED', datetime.now()
 
 
 if __name__ == '__main__':
-    sample_date = ['2020/11/19', '10/02/2020', '2020-12-01', '01-01-2020']
+    sample_date = ['2020/11/19', '10/02/2020', '2020-12-01', '1-01-2020']
     for date in sample_date:
         status, date_obj = date_matcher(date)
         print(f'Input Date: [{date}] [{status}] to [{date_obj}]')
